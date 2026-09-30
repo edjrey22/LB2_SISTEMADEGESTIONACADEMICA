@@ -6,9 +6,6 @@ import org.example.bussines.CursoService;
 
 import java.util.Scanner;
 
-
-import java.util.Scanner;
-
 public class CursoUI {
     private static final CursoService service = new CursoService();
 
@@ -17,7 +14,7 @@ public class CursoUI {
         int opcion;
 
         do {
-            System.out.println("\n=== GESTIÓN DE ESTUDIANTES ===");
+            System.out.println("\n=== GESTIÓN DE CURSOS ===");
             System.out.println("1. Registrar");
             System.out.println("2. Listar");
             System.out.println("3. Actualizar");
@@ -60,10 +57,10 @@ public class CursoUI {
         int id = leerId(sc);
         System.out.print("Nombre: ");
         String nombre = sc.nextLine();
-        System.out.print("descripcion: ");
-        String correo = sc.nextLine();
+        System.out.print("Descripción: ");
+        String descripcion = sc.nextLine();
 
-        service.registrar(new Curso(id, nombre, correo));
+        service.registrar(new Curso(id, nombre, descripcion));
         System.out.println("Curso registrado.");
     }
 
@@ -74,17 +71,17 @@ public class CursoUI {
         }
 
         service.listar().forEach(e -> System.out.println(
-                e.getId() + " - " + e.getNombre() + " - " + e.getCorreo()));
+                e.getId() + " - " + e.getNombre() + " - " + e.getDescripcion()));
     }
 
     private static void actualizar(Scanner sc) {
         int id = leerId(sc);
         System.out.print("Nuevo nombre: ");
         String nombre = sc.nextLine();
-        System.out.print("Nuevo descripcion: ");
-        String correo = sc.nextLine();
+        System.out.print("Nueva descripción: ");
+        String descripcion = sc.nextLine();
 
-        boolean actualizado = service.actualizar(new Estudiante(id, nombre, correo));
+        boolean actualizado = service.actualizar(new Curso(id, nombre, descripcion));
         System.out.println(actualizado ? "Curso actualizado." : "Curso no encontrado.");
     }
 
