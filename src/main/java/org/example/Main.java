@@ -1,6 +1,7 @@
 package org.example;
 
 import org.example.presentacion.EstudianteUI;
+import org.example.presentacion.CursoUI;
 
 import java.util.Scanner;
 
@@ -32,7 +33,8 @@ public class Main {
                     EstudianteUI.mostrarMenu(sc);
                     break;
                 case 2:
-                    System.out.println("La gestión de cursos aún no está disponible.");
+                    System.out.println("Ha elegido Gestionar Cursos.");
+                    CursoUI.mostrarMenu(sc);
                     break;
                 case 0:
                     System.out.println("Sistema finalizado.");
